@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>log in</title>
+  <link rel="stylesheet" href="/css/general.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="left-nav">
+        Logo
+      </div>
+      <div class="right-nav">
+        Menu
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <div class="userimg">
+        <img src="../images/avatar.jpg" alt="avatar">
+        <p>edit photo</p>
+      </div>
+      <div class="userinfor">
+        <div class="biodata">
+          <h3>BIO DATA</h3>
+          <div>
+            Name: <p> ${currentUser.username}</p>
+          </div>
+          <div>
+            Reg/Matric: <p> ${currentUser.matric}</p>
+          </div>
+          <div>
+            UserId:<p>  ${currentUser.userId}</p>
+          </div>
+        </div>
+        <div class="stddata">
+          <h3>STUDENTSHIP DATA</h3>
+          <div>
+            Faculty: <p>currentUser.faculty</p>
+          </div>
+          <div>
+            Department: <p>currentUser.department</p>
+          </div>
+          <div>
+            Current Level: <p> currentUser.level</p>
+          </div>
+        </div>
+        <button class="login"> LOG IN </button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    let userinfor= document.querySelector('.userinfor');
+    let userimg= document.querySelector('.userimg img');
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    function run() {
+      userimg.src = `${currentUser.image.photo} || "../images/avatar.jpg"`;
+      userinfor.innerHTML = `
+        <div class="biodata">
+          <h3>BIO DATA</h3>
+          <div>
+            Name: <p> ${currentUser.username}</p>
+          </div>
+          <div>
+            Reg/Matric: <p> ${currentUser.matric}</p>
+          </div>
+          <div>
+            UserId:<p>  ${currentUser.userId}</p>
+          </div>
+        </div>
+        <div class="stddata">
+          <h3>STUDENTSHIP DATA</h3>
+          <div>
+            Faculty: <p>${currentUser.faculty}</p>
+          </div>
+          <div>
+            Department: <p>${currentUser.department}</p>
+          </div>
+          <div>
+            Current Level: <p> ${currentUser.level}</p>
+          </div>
+        </div>
+      `
+    }
+    run()
+  </script>
+</body>
+</html>

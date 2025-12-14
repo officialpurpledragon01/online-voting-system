@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>log in</title>
+  <link rel="stylesheet" href="/css/general.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <!-- <link rel="stylesheet" href="/css/login.css"> -->
+  <link rel="stylesheet" href="/css/signup.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="left-nav">
+        Logo
+      </div>
+      <div class="right-nav">
+        Menu
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="form-container">
+      <div class="title"> LOG IN/SIGN IN</div>
+      <div class="form">
+        <label for="matric"> Matric/Reg No:
+          <input type="text" class="regNo">
+        </label>
+        <label for="password"> Password:
+          <input type="password" class="password">
+        </label>
+        <button class="login">LOG IN</button>
+      </div>
+      <div class="redirector">
+        Have no account yet? <a href="signup.html">create one</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    let userinfo = JSON.parse(localStorage.getItem('users'))
+
+    function login(){
+      let regNo = document.querySelector('.regNo').value.trim().toUpperCase();
+      let pascode = document.querySelector('.password').value.trim();
+
+      if(!regNo || !pascode){
+        console.log('all fields are required');
+        return;
+      }
+
+      let matched = false;
+
+      userinfo.forEach((user, index) => {
+        if (regNo === user.matric && pascode=== user.password){
+          matched = true;
+          let currentUser = user;
+          localStorage.setItem('currentUser', JSON.stringify(currentUser));
+          let userId = index;
+          localStorage.setItem('userIndex_Id', JSON.stringify(userId));
+        }  
+      });
+      
+      if (matched){
+        console.log('matched success')
+        window.location.href = '../pages/profile.html';
+      } else {
+        console.log('unmatched success')
+      }
+    }
+
+   document.querySelector('.login').addEventListener('click',()=>{
+    login()
+   });
+  </script>
+</body>
+</html>

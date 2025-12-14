@@ -1,0 +1,60 @@
+.intro{
+  margin-top: 50px;
+  background-color: white;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  align-items: center;
+
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 4px 4px 3px ;
+
+}
+.introHead{
+ border-bottom: 1px solid blue;
+ padding: 12px 5px;
+ width: 100%;
+ text-align: center;
+ font-family: fantasy;
+}
+.introBody{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 550;
+  /* text-wrap: wrap; */
+  hyphens: manual;
+  text-align: justify;
+  line-height: 25px;
+  padding: 0 10px;
+  margin-bottom: 5px;
+}
+.startBtn{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  column-gap: 10px;
+}
+.getStart, .logIn{
+  border-radius: 30px;
+  padding: 8px 1px;
+  width: 150px;
+  font-family: Calibri;
+  font-weight: 600;
+}
+.getStart{
+  color: white;
+  background-color: blue;
+  border: none;
+}
+.logIn{
+  color: blue;
+  background-color: white;
+  border: blue 2px solid;
+}
+.callCare{
+  font-family: Calibri;
+  font-weight: 700;
+  margin-top: 5px;
+  margin-bottom: 9px;
+}

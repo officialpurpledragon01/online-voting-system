@@ -1,0 +1,53 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+  gap: 5px;
+}
+.userimg{
+  /* border: 2px solid brown; */
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.userimg img{
+  width: 120px;
+  height: 120px;
+  border-radius: 100px;
+  border: 2px solid brown;
+  object-fit: cover;
+}
+.userinfor{
+  margin-top: 10px;
+  background-color: brown;
+  padding: 5px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  border-radius: 10px;
+}
+h3{
+  text-align: center;
+  background-color: white;
+  color: brown;
+  border-radius: 20px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.stddata > div, 
+.biodata > div{
+  margin: 15px 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+p{
+  text-align: right;
+}
