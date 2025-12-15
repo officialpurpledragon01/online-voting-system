@@ -44,13 +44,19 @@
 }
 .getStart{
   color: white;
-  background-color: blue;
+  background-color:  rgb(96, 0, 128);
   border: none;
 }
+.getStart a{
+  color: white;
+}
 .logIn{
-  color: blue;
+  color:  rgb(96, 0, 128);
   background-color: white;
-  border: blue 2px solid;
+  border:  rgb(96, 0, 128) 2px solid;
+}
+.logIn a{
+  color:  rgb(96, 0, 128);
 }
 .callCare{
   font-family: Calibri;

@@ -33,13 +33,14 @@
         <button class="login">LOG IN</button>
       </div>
       <div class="redirector">
-        Have no account yet? <a href="signup.html">create one</a>
+        Have no account yet? <a href="signup.html">Create one</a>
       </div>
     </div>
   </main>
 
   <script>
     let userinfo = JSON.parse(localStorage.getItem('users'))
+    const loginBtn = document.querySelector('.login')
 
     function login(){
       let regNo = document.querySelector('.regNo').value.trim().toUpperCase();
@@ -64,13 +65,19 @@
       
       if (matched){
         console.log('matched success')
-        window.location.href = '../pages/profile.html';
+        loginBtn.innerHTML = 'Logging in...'
+        setTimeout(()=>{
+          loginBtn.innerHTML = 'LOG IN'
+          window.location.href = '../pages/profile.html';
+        }, 2000)
       } else {
         console.log('unmatched success')
+        // loginBtn.setAttributeNS = 'disabled'
+        // console.log(loginBtn)
       }
     }
 
-   document.querySelector('.login').addEventListener('click',()=>{
+   loginBtn.addEventListener('click',()=>{
     login()
    });
   </script>

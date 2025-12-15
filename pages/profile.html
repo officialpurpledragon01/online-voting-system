@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>log in</title>
+  <title>Profile</title>
   <link rel="stylesheet" href="/css/general.css">
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/profile.css">
@@ -61,7 +61,7 @@
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
     function run() {
-      userimg.src = `${currentUser.image.photo} || "../images/avatar.jpg"`;
+      userimg.src = currentUser.image.photo || "../images/avatar.jpg";
       userinfor.innerHTML = `
         <div class="biodata">
           <h3>BIO DATA</h3>
@@ -73,6 +73,9 @@
           </div>
           <div>
             UserId:<p>  ${currentUser.userId}</p>
+          </div>
+          <div>
+            Already Voted: <p> ${currentUser.status.voted}</p>
           </div>
         </div>
         <div class="stddata">

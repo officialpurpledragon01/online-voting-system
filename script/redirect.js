@@ -4,7 +4,7 @@ let userinfo = JSON.parse(localStorage.getItem('users')) || []
 //   userinfo = [];
 //   localStorage.setItem('users', JSON.stringify(userinfo));
 // }
-
+const signinBtn = document.querySelector('.signup')
 const img1 = document.querySelector('.idCard');
 const img2 = document.querySelector('.photo');
 const img3 = document.querySelector('.receipt');
@@ -79,31 +79,37 @@ function signup() {
   } 
   else{
     if (password.length >= 6){
-     if (!idCard && !photo){
+     if (!idCard && !receipt){
        console.log('upload required files')
       } else {
-        if (idCard == photo) {
+        if (idCard == photo || idCard == receipt) {
           photo = '../images/avatar.jpg'
-        } 
-        if (idCard == receipt || photo == receipt) {
           receipt = ''
+        } 
+        if (receipt == photo || receipt == idCard) {
+          receipt = ''
+          idCard = ''
         }
+        signinBtn.innerHTML = 'Signing in...'
+        signinBtn.style.backgroundColor = 'blue'
+        setTimeout(() => {
+          signinBtn.innerHTML = 'SIGN UP'
+          window.location.href = '../pages/login.html'
+        }, 2000);
         userinfo.push(newuser)
         console.log('signup successful')
         localStorage.setItem('users', JSON.stringify(userinfo));
       }
     } else {
-      console.log('password not long enough')
+      console.log('password not long enough');
     }
   }
   console.log(userinfo);
 }
 
 
-document.querySelector('.signup').addEventListener('click', 
+signinBtn.addEventListener('click', 
   signup);
-  // console.log('ok')
-  // window.location.href = '../pages/profile.html'
 
 function generateUserId() {
   return 'VOTER-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 2000);

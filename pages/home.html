@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home</title>
-  <link rel="stylesheet" href="/css/gnral.css">
-  <link rel="stylesheet" href="/css/heaer.css">
-  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="/css/general.css">
+  <link rel="stylesheet" href="/css/header.css">
+  <link rel="stylesheet" href="/css/nav.css">
 </head>
 <body>
   <header>
@@ -21,33 +21,58 @@
   </header>
   <section>
     <nav class="side-nav">
-      <div class="campaign"> Ongoing Campaign</div>
-      <div class="profile"> My Profile</div>
-      <div class="logout"> Log Out</div>
-      <div class="campaign"> Ongoing Campaign</div>
-      <div class="profile"> My Profile</div>
-      <div class="logout"> Log Out</div>
-      <div class="campaign"> Ongoing Campaign</div>
-      <div class="profile"> My Profile</div>
-      <div class="logout"> Log Out</div>
-      <div class="campaign"> Ongoing Campaign</div>
-      <div class="profile"> My Profile</div>
-      <div class="logout"> Log Out</div>
-      <div class="campaign"> Ongoing Campaign</div>
-      <div class="profile"> My Profile</div>
-      <div class="logout"> Log Out</div>
+      <div class="campaign"> 
+        Ongoing Campaign
+      </div>
+      <div class="profile"> 
+        My Profile
+      </div>
+      <div class="logout"> 
+        Log Out
+      </div>
     </nav>
     <main>
-      <div class="campaign"> Ongoing Campaign</div>
-      <div class="profile"> My Profile</div>
-      <div class="logout"> Log Out</div>
-      <div class="campaign"> Ongoing Campaign</div>
-      <div class="profile"> My Profile</div>
-      <div class="logout"> Log Out</div>
-      <div class="campaign"> Ongoing Campaign</div>
-      <div class="profile"> My Profile</div>
-      <div class="logout"> Log Out</div>
+      <div class="form">
+        GO ON VOTE
+        <button onclick="vote()">VOTE</button>
+      </div>
     </main>
   </section>
+
+  <script>
+   const currentUser = JSON.parse(
+      localStorage.getItem('currentUser')
+    );
+    const users = JSON.parse(
+      localStorage.getItem('users')
+    );
+
+    const userId = currentUser.userId
+    const userVote = currentUser.status.voted;
+    let isVote = userVote
+    // btn = document.getElementsByTagName('button')
+    function vote() {
+      if (!isVote){
+        currentUser.status.voted = true
+        isVote = true
+        // console.log(userVote)
+        localStorage.setItem('currentUser', JSON.stringify(currentUser))
+        console.log('user voted success');
+
+        users.forEach(user => {
+          if (user.userId == userId) {
+            user.status.voted = currentUser.status.voted
+            localStorage.setItem('users', JSON.stringify(users))
+            console.log('testing')            
+          }
+        });
+
+      } else {
+        console.log('user already voted')
+        console.log(userVote)
+      }
+    }
+
+  </script>
 </body>
 </html>
