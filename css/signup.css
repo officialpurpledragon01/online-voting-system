@@ -33,7 +33,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: black;
+  color: rgb(96, 0, 128);
 }
 label input{
   width: 60%;
@@ -53,7 +53,7 @@ button{
   margin-top: 10px;
 }
 .terms{
-  color: black;
+  color: rgb(96, 0, 128);
   margin-top: 5px;
 }
 

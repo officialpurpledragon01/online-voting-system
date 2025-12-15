@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home</title>
+  <title>Vote</title>
   <link rel="stylesheet" href="/css/general.css">
   <link rel="stylesheet" href="/css/header.css">
   <link rel="stylesheet" href="/css/nav.css">
@@ -34,7 +34,14 @@
     <main>
       <div class="form">
         GO ON VOTE
-        <button onclick="vote()">VOTE</button>
+        <button class='vote' onclick="vote()">VOTE</button>
+        <br> <br>
+        <p style="border: 2px saddlebrown solid;">
+          <a href="profile.html">Profile</a> || 
+          <a href="../index.html"> Home </a> || 
+          <a href="../preview/preview.html">Preview Page</a> ||
+          <a href="../proto/index.html">Progress</a>
+        </p>
       </div>
     </main>
   </section>
@@ -50,25 +57,28 @@
     const userId = currentUser.userId
     const userVote = currentUser.status.voted;
     let isVote = userVote
-    // btn = document.getElementsByTagName('button')
+
+    const voteBtn = document.querySelector('.vote')
+
     function vote() {
       if (!isVote){
+        voteBtn.innerText = 'VOTED'
         currentUser.status.voted = true
         isVote = true
-        // console.log(userVote)
+
         localStorage.setItem('currentUser', JSON.stringify(currentUser))
-        console.log('user voted success');
+        alert('voted success');
 
         users.forEach(user => {
           if (user.userId == userId) {
             user.status.voted = currentUser.status.voted
             localStorage.setItem('users', JSON.stringify(users))
-            console.log('testing')            
+            console.log('vote updated')            
           }
         });
 
       } else {
-        console.log('user already voted')
+        alert('You already voted')
         console.log(userVote)
       }
     }

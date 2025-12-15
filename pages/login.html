@@ -47,6 +47,7 @@
       let pascode = document.querySelector('.password').value.trim();
 
       if(!regNo || !pascode){
+        alert('all fields are required')
         console.log('all fields are required');
         return;
       }
@@ -65,13 +66,18 @@
       
       if (matched){
         console.log('matched success')
-        loginBtn.innerHTML = 'Logging in...'
+        loginBtn.innerHTML = 'LOGGING IN...'
+        setTimeout(()=>{
+          // loginBtn.innerHTML = 'LOG IN'
+          window.location.href = '../pages/profile.html';
+        }, 2500)
+      } else {
+        loginBtn.innerHTML = 'LOGGING IN...'
         setTimeout(()=>{
           loginBtn.innerHTML = 'LOG IN'
-          window.location.href = '../pages/profile.html';
-        }, 2000)
-      } else {
-        console.log('unmatched success')
+          alert('User not found')
+        }, 1500)
+        console.log('User Not Found')
         // loginBtn.setAttributeNS = 'disabled'
         // console.log(loginBtn)
       }

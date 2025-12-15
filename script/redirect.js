@@ -75,11 +75,13 @@ function signup() {
   }
 
   if (!username || !password || !department || !faculty || !level || !matric) {
+    alert('all field is required')
     console.log('all field required')
   } 
   else{
     if (password.length >= 6){
      if (!idCard && !receipt){
+      alert('An id card or school fee reciept must be uploaded')
        console.log('upload required files')
       } else {
         if (idCard == photo || idCard == receipt) {
@@ -90,10 +92,9 @@ function signup() {
           receipt = ''
           idCard = ''
         }
-        signinBtn.innerHTML = 'Signing in...'
-        signinBtn.style.backgroundColor = 'blue'
+        signinBtn.innerHTML = 'SIGNING IN...'
+        // signinBtn.style.backgroundColor = 'blue'
         setTimeout(() => {
-          signinBtn.innerHTML = 'SIGN UP'
           window.location.href = '../pages/login.html'
         }, 2000);
         userinfo.push(newuser)
@@ -101,6 +102,7 @@ function signup() {
         localStorage.setItem('users', JSON.stringify(userinfo));
       }
     } else {
+      alert('Password lenght should atleast be 6(six) character long')
       console.log('password not long enough');
     }
   }

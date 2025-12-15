@@ -20,14 +20,15 @@
   width: 120px;
   height: 120px;
   border-radius: 100px;
-  border: 2px solid brown;
+  border: 2px solid rgb(96, 0, 128);
   object-fit: cover;
 }
 .userinfor{
   margin-top: 10px;
-  background-color: brown;
-  padding: 5px;
-  width: 300px;
+  background-color: rgb(96, 0, 128);
+  padding: 10px;
+  max-width: 470px;
+  min-width: 280px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -37,7 +38,7 @@
 h3{
   text-align: center;
   background-color: white;
-  color: brown;
+  color: rgb(96, 0, 128);
   border-radius: 20px;
   width: 100%;
   margin-bottom: 5px;
@@ -46,7 +47,7 @@ h3{
 .biodata > div{
   margin: 15px 5px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.7fr 1fr;
 }
 p{
   text-align: right;
