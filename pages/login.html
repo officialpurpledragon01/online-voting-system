@@ -38,54 +38,7 @@
     </div>
   </main>
 
-  <script>
-    let userinfo = JSON.parse(localStorage.getItem('users'))
-    const loginBtn = document.querySelector('.login')
-
-    function login(){
-      let regNo = document.querySelector('.regNo').value.trim().toUpperCase();
-      let pascode = document.querySelector('.password').value.trim();
-
-      if(!regNo || !pascode){
-        alert('all fields are required')
-        console.log('all fields are required');
-        return;
-      }
-
-      let matched = false;
-
-      userinfo.forEach((user, index) => {
-        if (regNo === user.matric && pascode=== user.password){
-          matched = true;
-          let currentUser = user;
-          localStorage.setItem('currentUser', JSON.stringify(currentUser));
-          let userId = index;
-          localStorage.setItem('userIndex_Id', JSON.stringify(userId));
-        }  
-      });
-      
-      if (matched){
-        console.log('matched success')
-        loginBtn.innerHTML = 'LOGGING IN...'
-        setTimeout(()=>{
-          // loginBtn.innerHTML = 'LOG IN'
-          window.location.href = '../pages/profile.html';
-        }, 2500)
-      } else {
-        loginBtn.innerHTML = 'LOGGING IN...'
-        setTimeout(()=>{
-          loginBtn.innerHTML = 'LOG IN'
-          alert('User not found')
-        }, 1500)
-        console.log('User Not Found')
-        // loginBtn.setAttributeNS = 'disabled'
-        // console.log(loginBtn)
-      }
-    }
-
-   loginBtn.addEventListener('click',()=>{
-    login()
-   });
-  </script>
+  <script src="https://unpkg.com/dayjs@1.11.19/dayjs.min.js"></script>
+  <script src="../script/authenticate/login.js" type="module"> </script>
 </body>
 </html>

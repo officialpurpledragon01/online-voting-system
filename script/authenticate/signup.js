@@ -1,9 +1,13 @@
-let userinfo = JSON.parse(localStorage.getItem('users')) || []
+import { saveToStorage, users} from "../../data/users.js";
+// import {today} from '../utils/date.js';
+import {userIdGen} from '../utils/idGen.js'
+// import {dayjs} from 'https://unpkg.com/dayjs@1.11.19/dayjs.min.js'
 
-// if (!userinfo){
-//   userinfo = [];
-//   localStorage.setItem('users', JSON.stringify(userinfo));
-// }
+const today = dayjs().format('ddd M, MMM YYYY (hh:mm A)');
+
+console.log(today);
+
+
 const signinBtn = document.querySelector('.signup')
 const img1 = document.querySelector('.idCard');
 const img2 = document.querySelector('.photo');
@@ -64,13 +68,17 @@ function signup() {
     faculty,
     department,
     level,
-    userId : generateUserId(),
+    userId : userIdGen(),
     image: {
       photo, idCard, receipt
     },
     status:{
       voted: false,
       verified: true
+    },
+    session:{
+      regDate: today,
+      lastLogin: today
     }
   }
 
@@ -97,22 +105,18 @@ function signup() {
         setTimeout(() => {
           window.location.href = '../pages/login.html'
         }, 2000);
-        userinfo.push(newuser)
+        users.push(newuser)
         console.log('signup successful')
-        localStorage.setItem('users', JSON.stringify(userinfo));
+        saveToStorage(users);
       }
     } else {
       alert('Password lenght should atleast be 6(six) character long')
       console.log('password not long enough');
     }
   }
-  console.log(userinfo);
+  console.log(users);
 }
-
 
 signinBtn.addEventListener('click', 
   signup);
 
-function generateUserId() {
-  return 'VOTER-' + Math.floor(Math.random() * 1000) + '-' + Math.floor(Math.random() * 2000);
-}

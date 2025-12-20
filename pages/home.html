@@ -34,8 +34,8 @@
     <main>
       <div class="form">
         GO ON VOTE
-        <button class='vote' onclick="vote()">VOTE</button>
-        <br> <br>
+        <button class='vote'>VOTE</button>
+        <br> <br> <br>
         <p style="border: 2px saddlebrown solid;">
           <a href="profile.html">Profile</a> || 
           <a href="../index.html"> Home </a> || 
@@ -46,43 +46,6 @@
     </main>
   </section>
 
-  <script>
-   const currentUser = JSON.parse(
-      localStorage.getItem('currentUser')
-    );
-    const users = JSON.parse(
-      localStorage.getItem('users')
-    );
-
-    const userId = currentUser.userId
-    const userVote = currentUser.status.voted;
-    let isVote = userVote
-
-    const voteBtn = document.querySelector('.vote')
-
-    function vote() {
-      if (!isVote){
-        voteBtn.innerText = 'VOTED'
-        currentUser.status.voted = true
-        isVote = true
-
-        localStorage.setItem('currentUser', JSON.stringify(currentUser))
-        alert('voted success');
-
-        users.forEach(user => {
-          if (user.userId == userId) {
-            user.status.voted = currentUser.status.voted
-            localStorage.setItem('users', JSON.stringify(users))
-            console.log('vote updated')            
-          }
-        });
-
-      } else {
-        alert('You already voted')
-        console.log(userVote)
-      }
-    }
-
-  </script>
+  <script src="../script/vote.js" type="module"></script>
 </body>
 </html>

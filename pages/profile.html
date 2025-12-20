@@ -59,45 +59,8 @@
       </button>
     </div>
   </main>
+    <!-- <script src="https://unpkg.com/dayjs@1.11.19/dayjs.min.js"></script> -->
 
-  <script>
-    let userinfor= document.querySelector('.userinfor');
-    let userimg= document.querySelector('.userimg img');
-    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
-    function run() {
-      userimg.src = currentUser.image.photo || "../images/avatar.jpg";
-      userinfor.innerHTML = `
-        <div class="biodata">
-          <h3>BIO DATA</h3>
-          <div>
-            Name: <p> ${currentUser.username}</p>
-          </div>
-          <div>
-            Reg/Matric: <p> ${currentUser.matric}</p>
-          </div>
-          <div>
-            UserId:<p>  ${currentUser.userId}</p>
-          </div>
-          <div>
-            Already Voted: <p> ${currentUser.status.voted}</p>
-          </div>
-        </div>
-        <div class="stddata">
-          <h3>STUDENTSHIP DATA</h3>
-          <div>
-            Faculty: <p>${currentUser.faculty}</p>
-          </div>
-          <div>
-            Department: <p>${currentUser.department}</p>
-          </div>
-          <div>
-            Current Level: <p> ${currentUser.level}</p>
-          </div>
-        </div>
-      `
-    }
-    run()
-  </script>
+  <script src="../script/profile.js" type="module"></script>
 </body>
 </html>
