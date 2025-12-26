@@ -23,6 +23,31 @@ nav{
   align-items: center;
   justify-content: space-between;   
 }
-nav > div{
-  border: 2px solid rgb(96, 0, 128);
+.left-nav{
+  padding-left: 5px;
+}
+.right-nav{
+  display: flex;
+  /* width: 20px; */
+  padding-right: 10px;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Franklin Gothic Medium';
+  cursor: pointer;
+}
+.right-nav div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+}
+.right-nav img{
+  color: blue;
+}
+.right-nav > div:hover{
+  color: blueviolet;
+  border: 1.5px solid;
+  padding: 2px 7px;
+  border-radius: 2px;
+  transition: .3s;
 }

@@ -4,24 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vote</title>
-  <link rel="stylesheet" href="../css/general.css">
   <link rel="stylesheet" href="../css/header.css">
   <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/home.css">
 </head>
 <body>
   <header>
     <nav>
       <div class="left-nav">
-        Logo
+        <img src="../images/logo.png" alt="Logo" width="50%">
       </div>
       <div class="right-nav">
-        user abstract
+          <img src="../images/icons/user.svg" alt="user">
+        <div style="display: flex; flex-direction: column;">
+          <p>user.username</p>
+          <p>user.userId</p>
+        </div>
       </div>
     </nav>
   </header>
   <section>
-    <nav class="side-nav">
-      <div class="campaign"> 
+    <div class="side-nav">
+      <div class="tagg"> 
         Ongoing Campaign
       </div>
       <div class="profile"> 
@@ -30,18 +34,19 @@
       <div class="logout"> 
         Log Out
       </div>
-    </nav>
+    </div>
     <main>
-      <div class="form">
-        GO ON VOTE
-        <button class='vote'>VOTE</button>
-        <br> <br> <br>
-        <p style="border: 2px saddlebrown solid;">
-          <a href="profile.html">Profile</a> || 
-          <a href="../index.html"> Home </a> || 
-          <a href="../preview/preview.html">Preview Page</a> ||
-          <a href="../proto/index.html">Progress</a>
-        </p>
+      <div class="campSection">
+        <div class="campHead">Departmental Voting Campaign</div>
+        <div class="campBody"> no available campaign </div>
+      </div>
+      <div class="campSection">
+        <div class="campHead">Faculty Voting Campaign</div>
+        <div class="campBody"> no available campaign </div>
+      </div>
+      <div class="campSection">
+        <div class="campHead">Student Union Voting Campaign</div>
+        <div class="campBody"> no available campaign </div>
       </div>
     </main>
   </section>
