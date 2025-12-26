@@ -30,26 +30,26 @@
       <div class="title"> CREATE ACCOUNT/SIGN UP</div>
       <div class="form">
         <label> Fullname:
-          <input type="text" class="name">
+          <input type="text" id="fullname" class="name">
         </label>
         <label> Email Address:
-          <input type="text" class="email">
+          <input type="text" id="email" class="email">
         </label>
         <label> Matric/Reg No:
-          <input type="text" class="matric">
+          <input type="text" id="regMatricNo" class="matric">
         </label>
         <label> Faculty:
-          <input type="text" class="faculty">
+          <input type="text" id="faculty" class="faculty">
         </label>
         <label> Department:
-          <input type="text" class="department">
+          <input type="text" id="department" class="department">
         </label>
         <label> Current Level:
-          <input type="tel" class="level" maxlength="3">
+          <input type="tel" id="level" class="level" maxlength="3">
         </label>
         <label>
           Password:
-          <input type="password" class="password">
+          <input type="password" id="password" class="password">
         </label>
         <p class="info">
           <i>
@@ -67,6 +67,7 @@
         <label> You Selfie Photo:
           <input type="file" class="photo" accept="image/*">
         </label>
+        <div id="message" style="display: none;"></div>
         <button class="signup">SIGN UP</button>
       </div>
       <div class="terms">

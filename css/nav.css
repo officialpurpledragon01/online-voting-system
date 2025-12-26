@@ -1,0 +1,13 @@
+.side-nav{
+  background-color: rgb(10, 206, 223); 
+  bottom: 0;
+  top: 0;
+  position: fixed;
+  padding-top: 105px;
+  width: 170px;
+
+}
+.side-nav div{
+  margin-bottom: 20px;
+  padding: 10px;
+}

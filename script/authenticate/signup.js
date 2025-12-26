@@ -1,5 +1,5 @@
 import { saveToStorage, users} from "../../data/users.js";
-// import {today} from '../utils/date.js';
+import {showMsg} from '../utils/message.js';
 import {userIdGen} from '../utils/idGen.js'
 // import {dayjs} from 'https://unpkg.com/dayjs@1.11.19/dayjs.min.js'
 
@@ -83,13 +83,15 @@ function signup() {
   }
 
   if (!username || !password || !department || !faculty || !level || !matric) {
-    alert('all field is required')
+    showMsg('no', 'empty')
+    // alert('all field is required')
     console.log('all field required')
   } 
   else{
     if (password.length >= 6){
      if (!idCard && !receipt){
-      alert('An id card or school fee reciept must be uploaded')
+      showMsg('no', 'file')
+      // alert('An id card or school fee reciept must be uploaded')
        console.log('upload required files')
       } else {
         if (idCard == photo || idCard == receipt) {
@@ -100,8 +102,10 @@ function signup() {
           receipt = ''
           idCard = ''
         }
-        signinBtn.innerHTML = 'SIGNING IN...'
-        // signinBtn.style.backgroundColor = 'blue'
+        
+        showMsg('yes', 'Signup')
+        signinBtn.innerHTML = 'SIGNING IN...';
+
         setTimeout(() => {
           window.location.href = '../pages/login.html'
         }, 2000);
@@ -110,13 +114,13 @@ function signup() {
         saveToStorage(users);
       }
     } else {
-      alert('Password lenght should atleast be 6(six) character long')
+      showMsg('no', 'password')
+      // alert('Password lenght should atleast be 6(six) character long')
       console.log('password not long enough');
     }
   }
   console.log(users);
 }
-
 signinBtn.addEventListener('click', 
   signup);
 
