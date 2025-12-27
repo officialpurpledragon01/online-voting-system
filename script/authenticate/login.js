@@ -7,7 +7,7 @@ const today = dayjs().format('ddd M, MMM YYYY (hh:mm A)');
 const loginBtn = document.querySelector('.login')
 
 function login(){
-  let regNo = document.querySelector('.regNo').value.trim().toUpperCase();
+  let regNo = document.querySelector('.matric').value.trim().toUpperCase();
   let pascode = document.querySelector('.password').value.trim();
 
   if(!regNo || !pascode){
