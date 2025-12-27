@@ -2,7 +2,8 @@ import { getFromStorage, saveTempUser, users } from '../../data/users.js';
 import {showMsg} from '../utils/message.js'
 // import {dayjs} from 'https://unpkg.com/dayjs@1.11.19/dayjs.min.js'
 
-const today = dayjs().format('ddd M, MMM YYYY (hh:mm A)');
+const today = 'sept 5'
+// dayjs().format('ddd M, MMM YYYY (hh:mm A)');
 
 const loginBtn = document.querySelector('.login')
 
@@ -51,5 +52,19 @@ function login(){
 }
 
 loginBtn.addEventListener('click',()=>{
-login()
+  let matricNo = document.querySelector('.matric').value.trim();
+  let password = document.querySelector('.password').value.trim();
+
+  fetch('http://localhost:8000/test', {
+    method: 'POST',
+    headers: {
+      'Content-Type' : 'application/json'
+    },
+    body: JSON.stringify({matricNo, password})
+  })
+  .then(res => res.json())
+  .then(data => console.log('Response: ', data.message))
+  .catch(err => console.log('Error:', err))
+
+// login()
 });

@@ -3,7 +3,8 @@ import {showMsg} from '../utils/message.js';
 import {userIdGen} from '../utils/idGen.js'
 // import {dayjs} from 'https://unpkg.com/dayjs@1.11.19/dayjs.min.js'
 
-const today = dayjs().format('ddd M, MMM YYYY (hh:mm A)');
+const today = 'january 1'
+// dayjs().format('ddd M, MMM YYYY (hh:mm A)');
 
 console.log(today);
 
